@@ -9,20 +9,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-import mimetypes
-mimetypes.add_type("text/css", ".css", True)
-
 CORS_ORIGIN_ALLOW_ALL = True
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 INSTALLED_APPS = [
     'rest_framework',
     'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'sslserver',
+    'corsheaders',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -32,12 +26,18 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    "https://localhost:8000",
+    "https://127.0.0.1:8000"
 ]
 
 ROOT_URLCONF = 'wandermeet.urls'
@@ -60,7 +60,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'wandermeet.wsgi.application'
-
 
 DATABASES = {
     'default': {
@@ -94,6 +93,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+SECURE_SSL_REDIRECT = True
+
 STATIC_ROOT = 'staticfiles'
 
 STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+

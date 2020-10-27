@@ -4,3 +4,4 @@ whitenoise
 django-rest-framework
 requests
 django-sslserver
+django-cors-headers
