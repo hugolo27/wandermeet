@@ -7,7 +7,7 @@ from wandermeet.fake import HomePage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^/*', HomePage.as_view(), name='wandermeet'),
+    url(r'^', HomePage.as_view(), name='wandermeet'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
