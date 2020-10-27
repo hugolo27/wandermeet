@@ -1,0 +1,6 @@
+Django
+gunicorn
+whitenoise
+django-rest-framework
+requests
+django-sslserver
