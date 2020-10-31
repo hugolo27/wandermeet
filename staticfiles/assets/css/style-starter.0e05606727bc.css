@@ -16,17 +16,17 @@ body {
 
 @font-face {
 	font-family: VAL;
-	src: url('/static/assets/fonts/VAL.otf') format('woff2'),
+	src: url("/static/assets/fonts/VAL.f7939b4faf54.otf") format('woff2'),
 	local('/static/assets/fonts/VAL.otf');
 	font-display: swap;
 }
 
 .bg1 {
-    background-image: url('/static/assets/images/bg1.PNG');
+    background-image: url("/static/assets/images/bg1.1e3fdc9c5cf3.PNG");
 }
 
 .bg2 {
-    background-image: url('/static/assets/images/bg2.PNG');
+    background-image: url("/static/assets/images/bg2.12a32bfbdd66.PNG");
 }
 
 .nomargin {
