@@ -1,0 +1,58 @@
+<style>
+        #loading {
+          display: inline-block;
+          width: 100px;
+          height: 100px;
+          border: 20px solid #e6cbfb;
+          border-radius: 50%;
+          border-top-color: #cb88ff;
+          animation: spin 1s ease-in-out infinite;
+          -webkit-animation: spin 1s ease-in-out infinite;
+          margin-top: -100px;
+        }
+
+        @keyframes spin {
+          to { -webkit-transform: rotate(360deg); }
+        }
+        @-webkit-keyframes spin {
+          to { -webkit-transform: rotate(360deg); }
+        }
+        .spin{
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            z-index: 5000;
+            background: #ffffff7a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0 !important;
+            left: 0 !important;
+        }
+    </style>
+<script>
+    window.onbeforeunload = function () {
+        document.getElementById("spinner").style.display = "flex";
+    };
+    document.onreadystatechange = function () {
+        if (document.readyState === "complete") {
+            document.getElementById("spinner").style.display = "none";
+        } else {
+            document.getElementById("spinner").style.display = "flex";
+        }
+    };
+    try {
+       document.querySelector("form").addEventListener("submit", function(e){
+        document.getElementById("spinner").style.display = "flex";
+    });
+    } catch (e) {}
+    function showSpin() {
+        document.getElementById("spinner").style.display = "flex";
+    }
+    function hideSpin() {
+        document.getElementById("spinner").style.display = "none";
+    }
+</script>
+<div class="spin" id="spinner">
+    <div id="loading"></div>
+</div>
