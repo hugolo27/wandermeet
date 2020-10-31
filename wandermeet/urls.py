@@ -3,11 +3,14 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from wandermeet.fake import HomePage
+from wandermeet.fake import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^', HomePage.as_view(), name='wandermeet'),
+    url(r'^$', IndexPage.as_view(), name='wandermeet'),
+    url(r'^home/', HomePage.as_view(), name='wandermeet'),
+    url(r'^login/', LoginPage.as_view(), name='wandermeet'),
+    url(r'^profile/', ProfilePage.as_view(), name='wandermeet'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

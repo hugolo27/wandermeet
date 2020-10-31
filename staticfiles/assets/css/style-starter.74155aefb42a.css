@@ -1,0 +1,143 @@
+:root {
+  --w-violet: #cb88ff;
+  --w-yellow: #f3ff87;
+  --w-orange: #ff914d;
+  --w-cyan: #6effa8;
+  --big-text: 18px;
+  --normal-text: 14px;
+}
+
+/*font-family: 'Kodchasan', sans-serif;*/
+
+@font-face {
+	font-family: VAL;
+	src: url("/static/assets/fonts/VAL.f7939b4faf54.otf") format('woff2'),
+	local('/static/assets/fonts/VAL.otf');
+	font-display: swap;
+}
+
+.bg1 {
+    background-image: url("/static/assets/images/bg1.1e3fdc9c5cf3.png");
+}
+
+.bg2 {
+    background-image: url("/static/assets/images/bg2.12a32bfbdd66.png");
+}
+
+.nomargin {
+    margin: 0;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.header{
+    background-color: var(--w-violet);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    font-family: VAL, sans-serif;
+    color: var(--w-orange);
+    filter: drop-shadow(2px 3px 1px black);
+    text-align: center !important;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.text1 {
+    font-family: 'Kodchasan', sans-serif;
+    color: black;
+    width: 100%;
+    text-align: center;
+}
+
+.allmiddle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    text-transform: uppercase;
+    font-family: 'Kodchasan', sans-serif;
+    font-size: var(--big-text);
+    background-color: var(--w-violet) !important;
+    box-shadow: 1px 1px 1px black;
+    color: black !important;
+    width: fit-content !important;
+    text-align: center;
+    padding: 5px 15px;
+}
+
+.kodchasan {
+    font-family: 'Kodchasan', sans-serif;
+}
+
+.fullheight {
+    height: 100vh;
+}
+
+input {
+    font-family: 'Kodchasan', sans-serif;
+    font-size: var(--normal-text);
+    color: var(--w-violet);
+    width: 100%;
+    margin: 10px 0;
+    border: 0;
+    box-shadow: 0 0 3px black;
+    border-radius: 0;
+    padding: 5px 10px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--w-violet);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: var(--w-violet);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: var(--w-violet);
+}
+
+.footer {
+    position: absolute !important;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: var(--w-violet);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.footer > a {
+    color: white !important;
+    font-size: 30px;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 20vh;
+    height: 20vh;
+    margin-top: 20px;
+}
+
+.titorange {
+    font-family: 'Kodchasan', sans-serif;
+    font-size: var(--big-text);
+    color: var(--w-orange);
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
