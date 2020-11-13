@@ -32,3 +32,11 @@ class ProfilePage(APIView):
 
     def get(self, request, format=None):
         return render(request, 'profile.html')
+
+
+class MapPage(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        return render(request, 'map.html')

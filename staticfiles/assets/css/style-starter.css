@@ -5,6 +5,7 @@
   --w-cyan: #6effa8;
   --big-text: 18px;
   --normal-text: 14px;
+  --small-text: 12px;
 }
 
 body {
@@ -30,11 +31,11 @@ body {
 }
 
 .nomargin {
-    margin: 0;
+    margin: 0 !important;
 }
 
 .nopadding {
-    padding: 0;
+    padding: 0 !important;
 }
 
 .header{
@@ -44,12 +45,25 @@ body {
     left: 0;
 }
 
+.header div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header i {
+    color: white;
+    text-align: center !important;
+    font-size: 1.4rem;
+}
+
 .logo {
     font-family: VAL, sans-serif;
     color: var(--w-orange);
     filter: drop-shadow(2px 3px 1px black);
     text-align: center !important;
     width: 100%;
+    font-size: 2.2rem;
     margin: 5px 0;
 }
 
@@ -114,20 +128,26 @@ input {
 }
 
 .footer {
-    position: absolute !important;
+    position: fixed !important;
     width: 100%;
     bottom: 0;
     left: 0;
     background-color: var(--w-violet);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 5px 10px;
+    z-index: 5000;
 }
 
 .footer > a {
-    color: white !important;
+    color: white;
     font-size: 30px;
+}
+
+.active {
+    filter: drop-shadow(2px 3px 2px black);
+    color: var(--w-orange) !important;
 }
 
 .profile-img {
@@ -146,4 +166,45 @@ input {
     margin-top: 10px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.profile-tit {
+    font-size: var(--big-text);
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.profile-sub {
+    font-size: var(--normal-text);
+    text-align: justify;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.history-img {
+    height: 100px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.content {
+    padding-bottom: 100px;
+}
+
+.history-con {
+    padding: 10px;
+    background: white;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.star-rating {
+    font-size: var(--small-text) !important;
+    color: var(--w-orange);
+}
+
+h4.star-rating  {
+    margin: 0 0 0 5px;
 }

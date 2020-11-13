@@ -21,12 +21,24 @@
             if (logged !== "true") {
                 window.location.href = "/login";
             }
+            function logout() {
+                sessionStorage.setItem("logged", "false");
+                window.location.href = "/";
+            }
         </script>
         {% include "spinner.html" %}
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 header">
-                    <a href="/"><h1 class="logo">WANDERMEET</h1></a>
+                <div class="col-12 header row nomargin">
+                    <div class="col-1 nopadding">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <div class="col-10 nopadding">
+                        <a href="/"><h1 class="logo">WANDERMEET</h1></a>
+                    </div>
+                    <div class="col-1 nopadding">
+                        <i class="fa fa-arrow-circle-right" onclick="logout()"></i>
+                    </div>
                 </div>
                 <div class="col-12 content" style="display: flex; flex-direction: column; align-items: center">
                     <img class="profile-img" id="pic" />
@@ -35,15 +47,77 @@
                         <i class="fa fa-map-marker" style="color: var(--w-violet); margin-right: 5px"></i>
                         <h4 style="font-size: var(--normal-text);" class="kodchasan" id="location"></h4>
                     </div>
-                    <br/>
-                    <h4 class="btn-primary" onclick="logout()">cerrar sesión</h4>
+                    <h4 class="btn-primary" >editar perfil</h4>
+                    <h4 class="kodchasan profile-tit"><b>Biografía:</b></h4>
+                    <h4 class="kodchasan profile-sub">
+                        <ul style="padding-left: 15px; margin-bottom: 0">
+                            <li>En Encarnación, Paraguay del 10 al 20 de diciembre</li>
+                            <li>Viajo solo</li>
+                            <li>Me interesan las atracciones deportivas, la gastronomía local y los parques</li>
+                        </ul>
+                    </h4>
+                    <h4 class="kodchasan profile-tit"><b>Estuve en:</b></h4>
+                    <div class="row nomargin">
+                        <div class="col-6">
+                            <img class="history-img"
+                                    src="https://media.ambito.com/p/87bdb27c1840d8de9f0efc11c49b4faa/adjuntos/239/imagenes/037/350/0037350990/la-zona-mas-exclusiva-capital-siempre-manejo-valores-dolares-hoy-esos-precios-se-pesificaron-como-consecuencia-la-pandemia.jpg" />
+                            <div class="history-con">
+                                <div style="display: flex;">
+                                    <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 10px"></i>
+                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Puerto Madero</h4>
+                                </div>
+                                <div style="display: flex; justify-content: flex-end; align-items: center">
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star-half-full star-rating"></i>
+                                    <h4 class="star-rating">(4.5)</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <img class="history-img"
+                                    src="https://www.infobae.com/new-resizer/uzchyHl5Ju034IOdUoRas20zBRs=/768x512/filters:format(jpg):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/JKAY2MZEOVBP3NF5K2XVG7UKSY.jpg" />
+                            <div class="history-con">
+                                <div style="display: flex;">
+                                    <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 10px"></i>
+                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Estadio Monumental</h4>
+                                </div>
+                                <div style="display: flex; justify-content: flex-end; align-items: center">
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star-o star-rating"></i>
+                                    <h4 class="star-rating">(4)</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <img class="history-img"
+                                    src="https://scontent.fasu3-1.fna.fbcdn.net/v/t31.0-8/15800348_1346055135457273_5191146416085839670_o.jpg?_nc_cat=106&ccb=2&_nc_sid=e3f864&_nc_ohc=LedFSHuZNUIAX_mqWO2&_nc_ht=scontent.fasu3-1.fna&oh=a4d20798990f006206aeb931e5b73ca8&oe=5FD54A95" />
+                            <div class="history-con">
+                                <div style="display: flex;">
+                                    <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 10px"></i>
+                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">La Guitarrita</h4>
+                                </div>
+                                <div style="display: flex; justify-content: flex-end; align-items: center">
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star-half-full star-rating"></i>
+                                    <i class="fa fa-star-o star-rating"></i>
+                                    <h4 class="star-rating">(3.5)</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 footer" style="display: flex; justify-content: space-between; align-items: center">
+                <div class="col-12 footer">
                     <a href="/home"><i class="fa fa-users"></i></a>
-                    <a href="#"><i class="fa fa-commenting"></i></a>
-                    <a href="#"><i class="fa fa-globe"></i></a>
-                    <a href="#"><i class="fa fa-plane"></i></a>
-                    <a href="/profile"><i class="fa fa-user"></i></a>
+                    <a href="/map"><i class="fa fa-globe"></i></a>
+                    <a href="/profile" class="active"><i class="fa fa-user"></i></a>
                 </div>
             </div>
         </div>
@@ -55,10 +129,6 @@
             $("#location").html(locc);
             $("#pic").attr("src", "/static/assets/images/" + pic + ".jpg")
 
-            function logout() {
-                sessionStorage.setItem("logged", "false");
-                window.location.href = "/";
-            }
         </script>
     </body>
 </html>
