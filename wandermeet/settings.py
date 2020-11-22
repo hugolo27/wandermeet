@@ -5,7 +5,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = '$a0880fsjwu4f5lglf9#_fokvtg+voup_*xj6n+$)y*8vo!wdw'
 
-DEBUG = False
+try:
+    DEBUG = bool(os.environ.get("DEBUG"))
+except:
+    DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 

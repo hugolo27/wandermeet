@@ -57,6 +57,25 @@
                     <a href="/map" class="active"><i class="fa fa-globe"></i></a>
                     <a href="/profile"><i class="fa fa-user"></i></a>
                 </div>
+                <style>
+                    .leaflet-marker-icon {
+                        filter: hue-rotate(-177deg) brightness(1.2) contrast(1.1) !important;
+                    }
+                    .leaflet-popup-content {
+                        font-family: 'Kodchasan';
+                        width: 92px;
+                        color: orange;
+                        text-transform: uppercase;
+                        text-align: justify;
+                        margin: 10px;
+                        font-size: 15px;
+                    }
+                    .leaflet-popup-content-wrapper {
+                        box-shadow: 2px 4px 6px #00000054;
+                        background: #ffffffb3;
+                        border-radius: 0;
+                    }
+                </style>
                 <script>
                     var mymap = L.map('mapid').setView([-34.5716212, -58.4138882], 15);
 
@@ -69,22 +88,27 @@
                         accessToken: 'pk.eyJ1IjoiaHVnb2xvMjciLCJhIjoiY2toZ25lOWxsMTV3bzJ3dDk0OXI3ZzJocCJ9.zh3kBvT0DiFbj_ej1tMWtQ'
                     }).addTo(mymap);
 
-                   // var marker = L.marker([-34.5716212, -58.4138882]).addTo(mymap);
+                    var markerOptions = {
+   title: "MyLocation",
+   clickable: true,
+   draggable: true
+}
+
+                    var m1 = L.marker([-34.5690548, -58.4182067], markerOptions).addTo(mymap)
+                        .bindPopup("<b>Museo de<br/> artes plásticas<br/> 'Eduardo Sivori'</b><br/>");
+
+                    var m2 = L.marker([-34.5696617, -58.4117992]).addTo(mymap)
+                        .bindPopup("<b>Planetario<br/> Galileo Galilei<br/>");
+
+                    var m3 = L.marker([-34.575142, -58.409321]).addTo(mymap)
+                        .bindPopup("<b>Jardines<br/> Japoneses de<br/> Buenos Aires</b><br/>");
 
                     var circle = L.circle([-34.5716212, -58.4138882], {
                         color: '#cb88ff',
                         fillColor: '#cb88ff',
                         fillOpacity: .8,
-                        radius: 150
+                        radius: 100
                     }).addTo(mymap);
-
-                    circle.bindTooltip("YO",
-                       {
-                           permanent: true,
-                           direction:"center",
-                           backgroundColor: '#cb88ff'
-                       }
-                      ).openTooltip()
                 </script>
             </div>
         </div>
