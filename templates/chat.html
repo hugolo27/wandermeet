@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="zxx">
+    <head>
+        <link rel="icon" href="/static/favicon.PNG">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Wandermeet</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Kodchasan&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/assets/css/style-starter.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </head>
+    <body class="bg2">
+        <script>
+            let logged = sessionStorage.getItem("logged");
+            if (logged !== "true") {
+                window.location.href = "/login";
+            }
+            function logout() {
+                sessionStorage.setItem("logged", "false");
+                window.location.href = "/";
+            }
+        </script>
+        {% include "spinner.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 header row nomargin">
+                    <div class="col-1 nopadding">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <div class="col-10 nopadding">
+                        <a href="/"><h1 class="logo">WANDERMEET</h1></a>
+                    </div>
+                    <div class="col-1 nopadding">
+                        <i class="fa fa-arrow-circle-right" onclick="logout()"></i>
+                    </div>
+                </div>
+                <style>
+                    .entry {
+                        width: 100%;
+                        border-radius: 5px;
+                        border: 1px solid var(--w-orange);
+                        background: white;
+                        margin-top: 10px;
+                        padding: 10px;
+                        display: flex;
+
+                    }
+
+                    .entry img, .popup img {
+                        width: 100px;
+                        height: 100px;
+                        object-fit: cover;
+                        border-radius: 5px;
+                        margin-right: 10px;
+                    }
+
+                    .entry h1, .popup h1 {
+                        font-family: 'Kodchasan', sans-serif;
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: var(--w-orange);
+                    }
+
+                    .entry h7, .popup h7 {
+                        width: 100%;
+                        text-transform: uppercase;
+                        font-family: 'Kodchasan', sans-serif;
+                        background-color: var(--w-orange) !important;
+                        box-shadow: 0px 0px 1px black;
+                        color: black !important;
+                        text-align: center;
+                        padding: 1px 10px;
+                        cursor: pointer;
+                    }
+
+                    .popup {
+                        width: 100%;
+                        height: 100vh;
+                        position: absolute;
+                        background: white;
+                        padding: 20px;
+                        display: none;
+                    }
+
+                    .show {
+                        display: block;
+                    }
+
+                    .chat1 {
+                        float: right;
+                        background: var(--w-violet);
+                        padding: 10px;
+                        border-radius: 5px;
+                        font-size: var(--big-text);
+                        margin-bottom: 5px;
+                    }
+
+                    .chat2 {
+                        float: left;
+                        background: var(--w-orange);
+                        padding: 10px;
+                        border-radius: 5px;
+                        font-size: var(--big-text);
+                        margin-bottom: 5px;
+                    }
+
+                    .send {
+                        position: absolute;
+                        width: 90%;
+                        bottom: 130px;
+                        display: flex;
+                    }
+
+                    .send input{
+                        border-radius: 5px;
+                        background: lightgray;
+                        border-color: gray;
+                        color: black;
+                        font-family: 'Kodchasan', sans-serif;
+                    }
+
+                    .send i {
+                        font-size: 30px;
+                        color: var(--w-violet);
+                        margin-left: 10px;
+                    }
+
+                    .matched {
+                        z-index: 1;
+                        height: 95vh;
+                        width: 100%;
+                        position: absolute;
+                        padding: 20px;
+                        display: none;
+                    }
+                </style>
+                <script>
+                    function openj() {
+                        $("#pj").addClass("show");
+                    }
+                    function hidej() {
+                        $("#pj").removeClass("show");
+                    }
+                    function openm() {
+                        $("#pm").addClass("show");
+                    }
+                    function hidem() {
+                        $("#pm").removeClass("show");
+                    }
+                    function msgj() {
+                        if ($("#chatj").val() === "") {
+                            return;
+                        }
+                        $("#msgsj").append('<div><h4 class="chat1 kodchasan">' +
+                            $("#chatj").val()
+                            + '</h4></div>');
+                        $("#chatj").val("");
+                    }
+                    function msgm() {
+                        if ($("#chatm").val() === "") {
+                            return;
+                        }
+                        $("#msgsm").append('<div><h4 class="chat1 kodchasan">' +
+                            $("#chatm").val()
+                            + '</h4></div>');
+                        $("#chatm").val("");
+                    }
+                    function chauj () {
+                        hidej();
+                        $("#entryj").remove();
+                    }
+                    function chaum () {
+                        hidem();
+                        $("#entrym").remove();
+                    }
+                </script>
+                <div class="col-12 content" id="entries"
+                     style="display: flex; flex-direction: column; align-items: center; position: relative">
+                    <div class="entry" id="entryj">
+                        <img src="https://www.mensjournal.com/wp-content/uploads/mf/1280-selfie.jpg?w=900&quality=86&strip=all" />
+                        <div>
+                            <h1>Juan, 20</h1>
+                            <div style="display:flex;">
+                                <i class="fa fa-map-marker" style="color: var(--w-violet); margin-right: 5px"></i>
+                                <h4 style="font-size: var(--normal-text);" class="kodchasan" id="location">Tigre, Argentina</h4>
+                            </div>
+                            <h6 style="font-size: var(--normal-text);" class="kodchasan" >75% de coincidencia</h6>
+                            <h7 class="kodchasan"
+                                onclick="openj()"
+                            >ABRIR CHAT</h7>
+                        </div>
+                    </div>
+
+
+                    <div class="popup" id="pj">
+                        <h1 onclick="hidej()" style="position: absolute; right: 15px; top: 15px">X</h1>
+                        <div style="display: flex;  padding-bottom: 10px; border-bottom: 1px solid var(--w-violet)">
+                            <img src="https://www.mensjournal.com/wp-content/uploads/mf/1280-selfie.jpg?w=900&quality=86&strip=all" />
+                            <div>
+                                <h1>Juan, 20</h1>
+                                <div style="display:flex;">
+                                    <i class="fa fa-map-marker" style="color: var(--w-violet); margin-right: 5px"></i>
+                                    <h4 style="font-size: var(--normal-text);" class="kodchasan" id="location">Tigre, Argentina</h4>
+                                </div>
+                                <h6 style="font-size: var(--normal-text);" class="kodchasan" >75% de coincidencia</h6>
+                                <div style="display:flex;">
+                                    <h7 onclick="chauj()" class="kodchasan" style="background: var(--w-violet) !important;">ELIMINAR</h7>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: grid; flex-direction: column; margin-top: 10px" id="msgsj">
+                            <div><h4 class="chat1 kodchasan">Hola Juan</h4></div>
+                            <div><h4 class="chat2 kodchasan">Hola Meli!</h4></div>
+                            <div><h4 class="chat1 kodchasan">Vi que estás cerca del planetario</h4></div>
+                            <div><h4 class="chat1 kodchasan">Querés que nos encontremos?</h4></div>
+                            <div><h4 class="chat2 kodchasan">Dale! a qué hora llegarías?</h4></div>
+                        </div>
+
+                        <div class="send">
+                            <input type="text" id="chatj">
+                            <i class="fa fa-arrow-right" onclick="msgj()"></i>
+                        </div>
+                    </div>
+
+                    <div class="popup" id="pm">
+                        <h1 onclick="hidem()" style="position: absolute; right: 15px; top: 15px">X</h1>
+                        <div style="display: flex;  padding-bottom: 10px; border-bottom: 1px solid var(--w-violet)">
+                            <img src="https://www.aero-mag.com/wp-content/uploads/2019/07/AMJuly19News-ametek1-e1563205327354-1024x1024.jpg" />
+                            <div>
+                                <h1>María, 22</h1>
+                                <div style="display:flex;">
+                                    <i class="fa fa-map-marker" style="color: var(--w-violet); margin-right: 5px"></i>
+                                    <h4 style="font-size: var(--normal-text);" class="kodchasan" id="location">La Plata, Argentina</h4>
+                                </div>
+                                <h6 style="font-size: var(--normal-text);" class="kodchasan" >90% de coincidencia</h6>
+                                <div style="display:flex;">
+                                    <h7 onclick="chaum()" class="kodchasan" style="background: var(--w-violet) !important;">ELIMINAR</h7>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: grid; flex-direction: column; margin-top: 10px" id="msgsm">
+                        </div>
+
+                        <div class="send">
+                            <input type="text" id="chatm">
+                            <i class="fa fa-arrow-right" onclick="msgm()"></i>
+                        </div>
+                    </div>
+
+                    <div class="matched bg2" style="padding-top: 0; display: flex; flex-direction: column; align-items: center; justify-content: center" id="matched">
+                        <h1 class="logo" style="display:none; font-size: 60px !important; margin-top: -80px" id="tit">MEET!</h1>
+                        <div id="g1" style="display: none; flex-direction: column; align-items: center">
+                            <img style="width: 170px; height: 170px; border-radius: 50%; object-fit: cover; border: 10px solid var(--w-orange)"
+                                    src="https://www.aero-mag.com/wp-content/uploads/2019/07/AMJuly19News-ametek1-e1563205327354-1024x1024.jpg" />
+                            <h1 class="kodchasan" style="color: var(--w-orange); filter: drop-shadow(0 1px 5px white); text-shadow: 0 0 5px white"><b>María, 22</b></h1>
+                            <div style="display:flex;">
+                                <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 5px;font-size: 25px;"></i>
+                                <h4 style="font-size: 25px;" class="kodchasan" id="location">La Plata, Argentina</h4>
+                            </div>
+                        </div>
+                        <div id="g2" style="display: none; flex-direction: column; align-items: center">
+                            <br/>
+                            <h5 class="kodchasan" style="text-align: center"><b><i>María y vos tienen un 90% de coincidencia</i></b></h5>
+                            <br/>
+                            <h4 class="btn-primary" onclick="bye()">IR AL CHAT</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 footer">
+                    <a href="/chat" class="active"><i class="fa fa-users"></i></a>
+                    <a href="/map"><i class="fa fa-globe"></i></a>
+                    <a href="/profile"><i class="fa fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function bye() {
+                $("#matched").remove();
+            }
+            if (window.location.search.split("?open=").length > 1) {
+                let chat = window.location.search.split("?open=")[1];
+                if (chat==="j") {
+                    openj();
+                    $("#matched").remove();
+                } else {
+                    $("#entries").append('<div class="entry" id="entrym"><img src="https://www.aero-mag.com/wp-content/uploads/2019/07/AMJuly19News-ametek1-e1563205327354-1024x1024.jpg"'
+                        +' /><div><h1>María, 22</h1><div style="display:flex;"><i class="fa fa-map-marker" style="color: var(--w-violet); margin-right: 5px"></i>'
+                        +'<h4 style="font-size: var(--normal-text);" class="kodchasan" id="location">La Plata, Argentina</h4>'
+                        +'</div><h6 style="font-size: var(--normal-text);" class="kodchasan" >90% de coincidencia</h6>'
+                        +'<h7 class="kodchasan"onclick="openm()">ABRIR CHAT</h7></div></div>')
+                    openm();
+
+                        setTimeout( function () {$("#tit").fadeIn("fast");} , 1500);
+                        setTimeout( function () {$("#g1").fadeIn("slow");$("#g1").css("display", "flex");} , 3000);
+                        setTimeout( function () {$("#g2").fadeIn("slow");$("#g2").css("display", "flex");} , 6000);
+                }
+            }
+        </script>
+    </body>
+</html>

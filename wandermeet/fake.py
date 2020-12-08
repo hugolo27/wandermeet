@@ -10,12 +10,12 @@ class IndexPage(APIView):
         return render(request, 'index.html')
 
 
-class HomePage(APIView):
+class ChatPage(APIView):
     authentication_classes = []
     permission_classes = []
 
     def get(self, request, format=None):
-        return render(request, 'home.html')
+        return render(request, 'chat.html')
 
 
 class LoginPage(APIView):

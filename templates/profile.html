@@ -41,19 +41,19 @@
                     </div>
                 </div>
                 <div class="col-12 content" style="display: flex; flex-direction: column; align-items: center">
-                    <img class="profile-img" id="pic" />
-                    <h4 class="titorange" id="name"></h4>
+                    <img class="profile-img" id="pic" src="https://instagram.fasu9-1.fna.fbcdn.net/v/t51.2885-19/s150x150/122086235_367460174455369_3651895980501630849_n.jpg?_nc_ht=instagram.fasu9-1.fna.fbcdn.net&_nc_ohc=NJo5ust1inQAX_E_g1O&tp=1&oh=ca888a6b1b48447d02ab79711387782c&oe=5FFB3770" />
+                    <h4 class="titorange" id="name">MELINA</h4>
                     <div style="display:flex;">
                         <i class="fa fa-map-marker" style="color: var(--w-violet); margin-right: 5px"></i>
-                        <h4 style="font-size: var(--normal-text);" class="kodchasan" id="location"></h4>
+                        <h4 style="font-size: var(--normal-text);" class="kodchasan" id="location">Buenos Aires, Argentina</h4>
                     </div>
                     <h4 class="btn-primary" >editar perfil</h4>
                     <h4 class="kodchasan profile-tit"><b>Biografía:</b></h4>
                     <h4 class="kodchasan profile-sub">
                         <ul style="padding-left: 15px; margin-bottom: 0">
-                            <li>En Encarnación, Paraguay del 10 al 20 de diciembre</li>
-                            <li>Viajo solo</li>
-                            <li>Me interesan las atracciones deportivas, la gastronomía local y los parques</li>
+                            <li>En Buenos Aires, del 10 al 20 de diciembre</li>
+                            <li>Viajo sola</li>
+                            <li>Me interesa la gastronomía local, los parques y los sitios históricos</li>
                         </ul>
                     </h4>
                     <h4 class="kodchasan profile-tit"><b>Estuve en:</b></h4>
@@ -115,20 +115,11 @@
                     </div>
                 </div>
                 <div class="col-12 footer">
-                    <a href="/home"><i class="fa fa-users"></i></a>
+                    <a href="/chat"><i class="fa fa-users"></i></a>
                     <a href="/map"><i class="fa fa-globe"></i></a>
                     <a href="/profile" class="active"><i class="fa fa-user"></i></a>
                 </div>
             </div>
         </div>
-        <script>
-            let pic = sessionStorage.getItem("username");
-            let name = sessionStorage.getItem("profile_name");
-            let locc = sessionStorage.getItem("location");
-            $("#name").html(name);
-            $("#location").html(locc);
-            $("#pic").attr("src", "/static/assets/images/" + pic + ".jpg")
-
-        </script>
     </body>
 </html>

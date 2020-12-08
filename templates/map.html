@@ -53,7 +53,7 @@
                 </div>
                 <!-- END content -->
                 <div class="col-12 footer">
-                    <a href="/home"><i class="fa fa-users"></i></a>
+                    <a href="/chat"><i class="fa fa-users"></i></a>
                     <a href="/map" class="active"><i class="fa fa-globe"></i></a>
                     <a href="/profile"><i class="fa fa-user"></i></a>
                 </div>
@@ -72,8 +72,61 @@
                     }
                     .leaflet-popup-content-wrapper {
                         box-shadow: 2px 4px 6px #00000054;
-                        background: #ffffffb3;
+                        background: #ffffff;
                         border-radius: 0;
+                    }
+
+                    .mi-tool {
+                        background: none;
+                        border: none;
+                        filter: none;
+                        box-shadow: none;
+                    }
+
+                    .toolimg {
+                        border-radius: 50%;
+                        width: 70px;
+                        height: 70px;
+                        object-fit: cover;
+                        border: 4px solid var(--w-orange);
+                    }
+
+                    .toolimg2 {
+                        border-radius: 50%;
+                        width: 70px;
+                        height: 70px;
+                        object-fit: cover;
+                        border: 4px solid var(--w-violet);
+                    }
+
+                    .pmimg {
+                        width: 90px;
+                        height: 90px;
+                        object-fit: cover;
+                    }
+
+                    .pmbut {
+                        text-transform: uppercase;
+                        font-family: 'Kodchasan', sans-serif;
+                        background-color: var(--w-orange) !important;
+                        box-shadow: 0px 0px 1px black;
+                        color: black !important;
+                        width: 100% !important;
+                        text-align: center;
+                        padding: 5px 15px;
+                        cursor: pointer;
+                    }
+
+                    .pmbut2 {
+                        text-transform: uppercase;
+                        font-family: 'Kodchasan', sans-serif;
+                        background-color: var(--w-violet) !important;
+                        box-shadow: 0px 0px 1px black;
+                        color: black !important;
+                        width: 100% !important;
+                        text-align: center;
+                        padding: 5px 15px;
+                        cursor: pointer;
                     }
                 </style>
                 <script>
@@ -88,27 +141,92 @@
                         accessToken: 'pk.eyJ1IjoiaHVnb2xvMjciLCJhIjoiY2toZ25lOWxsMTV3bzJ3dDk0OXI3ZzJocCJ9.zh3kBvT0DiFbj_ej1tMWtQ'
                     }).addTo(mymap);
 
-                    var markerOptions = {
-   title: "MyLocation",
-   clickable: true,
-   draggable: true
-}
-
-                    var m1 = L.marker([-34.5690548, -58.4182067], markerOptions).addTo(mymap)
+                    var m1 = L.marker([-34.5690548, -58.4182067]).addTo(mymap)
                         .bindPopup("<b>Museo de<br/> artes plásticas<br/> 'Eduardo Sivori'</b><br/>");
+
+                    var c1 = L.circle([-34.5690548, -58.4175], {
+                        color: 'yellow',
+                        fillColor: 'yellow',
+                        fillOpacity: .5,
+                        radius: 60
+                    }).addTo(mymap);
+
+                    c1.bindTooltip('<b style="font-size: 10px">85%</b>',
+                        {permanent: true, className: "mi-tool", direction: 'center'});
 
                     var m2 = L.marker([-34.5696617, -58.4117992]).addTo(mymap)
                         .bindPopup("<b>Planetario<br/> Galileo Galilei<br/>");
 
+                    var c2 = L.circle([-34.5696617, -58.411], {
+                        color: 'yellow',
+                        fillColor: 'yellow',
+                        fillOpacity: .5,
+                        radius: 60
+                    }).addTo(mymap);
+
+                    c2.bindTooltip('<b style="font-size: 10px">70%</b>',
+                        {permanent: true, className: "mi-tool", direction: 'center'});
+
                     var m3 = L.marker([-34.575142, -58.409321]).addTo(mymap)
                         .bindPopup("<b>Jardines<br/> Japoneses de<br/> Buenos Aires</b><br/>");
 
-                    var circle = L.circle([-34.5716212, -58.4138882], {
+                    var c3 = L.circle([-34.575142, -58.4083], {
+                        color: 'yellow',
+                        fillColor: 'yellow',
+                        fillOpacity: .5,
+                        radius: 60
+                    }).addTo(mymap);
+
+                    c3.bindTooltip('<b style="font-size: 10px">90%</b>',
+                        {permanent: true, className: "mi-tool", direction: 'center'});
+
+                    var yo = L.circle([-34.5716212, -58.4138882], {
+                        color: '#ff914d',
+                        fillColor: '#ff914d',
+                        fillOpacity: .8,
+                        radius: 85
+                    }).addTo(mymap);
+
+                    yo.bindTooltip('<b style="font-size: 17px; font-family: Kodchasan">YO</b>',
+                        {permanent: true, className: "mi-tool", direction: 'center'});
+
+                    var un = L.circle([-34.575, -58.4182067], {
                         color: '#cb88ff',
                         fillColor: '#cb88ff',
                         fillOpacity: .8,
-                        radius: 100
-                    }).addTo(mymap);
+                        radius: 85
+                    }).addTo(mymap)
+                        .bindPopup("<img class='pmimg' src='https://www.aero-mag.com/wp-content/uploads/2019/07/AMJuly19News-ametek1-e1563205327354-1024x1024.jpg' /><b>Maria, 22</b><br/><br/>" +
+                            "<button onclick='goChatM()' class='pmbut'>MEET!</button>");
+
+                    un.bindTooltip('<b style="font-size: 17px; font-family: Kodchasan">' +
+                        '<img class="toolimg" ' +
+                        'src="https://www.aero-mag.com/wp-content/uploads/2019/07/AMJuly19News-ametek1-e1563205327354-1024x1024.jpg">' +
+                        '</b>',
+                        {permanent: true, className: "mi-tool", direction: 'center'});
+
+                    var dd = L.circle([-34.565, -58.409321], {
+                        color: '#cb88ff',
+                        fillColor: '#cb88ff',
+                        fillOpacity: .8,
+                        radius: 85
+                    }).addTo(mymap)
+                        .bindPopup("<img class='pmimg' src='https://www.mensjournal.com/wp-content/uploads/mf/1280-selfie.jpg?w=900&quality=86&strip=all' /><b>Juan, 20</b><br/><br/>" +
+                            "<button onclick='goChatJ()' class='pmbut2'>CHAT</button>");
+
+                    dd.bindTooltip('<b style="font-size: 17px; font-family: Kodchasan">' +
+                        '<img class="toolimg2" ' +
+                        'src="https://www.mensjournal.com/wp-content/uploads/mf/1280-selfie.jpg?w=900&quality=86&strip=all">' +
+                        '</b>',
+                        {permanent: true, className: "mi-tool", direction: 'center'});
+
+                    function goChatJ() {
+                        window.location.href = "/chat?open=j"
+                    }
+
+                    function goChatM() {
+                        window.location.href = "/chat?open=m"
+                    }
                 </script>
             </div>
         </div>

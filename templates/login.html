@@ -50,27 +50,14 @@
             function login() {
                 let user = $("#user").val().toLowerCase();
                 let pass = $("#pass").val().toLowerCase();
-                if (user !== "hugolo27" && user !== "melimakinistian") {
+                if (user !== "melina") {
                     alert("Usuario o contraseña incorrectos");
                     return;
                 } else if (pass.length === 0) {
                     alert("Usuario o contraseña incorrectos");
                     return;
                 }
-                if (user === "hugolo27") {
-                    sessionStorage.setItem("username", "hugolo27");
-                    sessionStorage.setItem("name", "Hugo");
-                    sessionStorage.setItem("profile_name", "HUGO, 25");
-                    sessionStorage.setItem("location", "Asunción, Paraguay");
-                    sessionStorage.setItem("logged", "true");
-                }
-                else if (user === "melimakinistian") {
-                    sessionStorage.setItem("username", "melimakinistian");
-                    sessionStorage.setItem("name", "Meli");
-                    sessionStorage.setItem("profile_name", "MELI, 21");
-                    sessionStorage.setItem("location", "Buenos Aires, Argentina");
-                    sessionStorage.setItem("logged", "true");
-                }
+                sessionStorage.setItem("logged", "true");
                 window.location.href = "/map";
             }
 
