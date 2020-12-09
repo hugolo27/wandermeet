@@ -11,6 +11,8 @@ urlpatterns = [
     url(r'^chat', ChatPage.as_view(), name='wandermeet'),
     url(r'^login/', LoginPage.as_view(), name='wandermeet'),
     url(r'^profile/', ProfilePage.as_view(), name='wandermeet'),
+    url(r'^profile1/', ProfilePage1.as_view(), name='wandermeet'),
+    url(r'^profile2/', ProfilePage2.as_view(), name='wandermeet'),
     url(r'^map/', MapPage.as_view(), name='wandermeet'),
 ]
 

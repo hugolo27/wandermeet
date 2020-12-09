@@ -25,6 +25,9 @@
                 sessionStorage.setItem("logged", "false");
                 window.location.href = "/";
             }
+            function back() {
+                window.history.back();
+            }
         </script>
         {% include "spinner.html" %}
         <div class="container-fluid">
@@ -41,48 +44,31 @@
                     </div>
                 </div>
                 <div class="col-12 content" style="display: flex; flex-direction: column; align-items: center">
-                    <img class="profile-img" id="pic" src="https://instagram.fasu9-1.fna.fbcdn.net/v/t51.2885-19/s150x150/122086235_367460174455369_3651895980501630849_n.jpg?_nc_ht=instagram.fasu9-1.fna.fbcdn.net&_nc_ohc=NJo5ust1inQAX_E_g1O&tp=1&oh=ca888a6b1b48447d02ab79711387782c&oe=5FFB3770" />
-                    <h4 class="titorange" id="name">MELINA</h4>
+                    <img class="profile-img" id="pic" src="https://www.aero-mag.com/wp-content/uploads/2019/07/AMJuly19News-ametek1-e1563205327354-1024x1024.jpg" />
+                    <h4 class="titorange" id="name">MARIA, 22</h4>
+                    <h4 class="titorange bai" onclick="back()">X</h4>
                     <div style="display:flex;">
                         <i class="fa fa-map-marker" style="color: var(--w-violet); margin-right: 5px"></i>
-                        <h4 style="font-size: var(--normal-text);" class="kodchasan" id="location">Buenos Aires, Argentina</h4>
+                        <h4 style="font-size: var(--normal-text);" class="kodchasan" id="location">La Plata, Argentina</h4>
                     </div>
-                    <h4 class="btn-primary" >editar perfil</h4>
                     <h4 class="kodchasan profile-tit"><b>Biografía:</b></h4>
                     <h4 class="kodchasan profile-sub">
                         <ul style="padding-left: 15px; margin-bottom: 0">
-                            <li>En Buenos Aires, del 10 al 20 de diciembre</li>
-                            <li>Viajo sola</li>
-                            <li>Me interesa la gastronomía local, los parques y los sitios históricos</li>
+                            <li>En Buenos Aires, del 15 al 30 de diciembre</li>
+                            <li>Viajando en pareja</li>
+                            <li>Me gusta mucho conocer lugares nuevos y probar comidas típicas</li>
+                            <li>Vegetariana</li>
                         </ul>
                     </h4>
                     <h4 class="kodchasan profile-tit"><b>Estuve en:</b></h4>
                     <div class="row nomargin" style="width: 100vw">
                         <div class="col-6">
                             <img class="history-img"
-                                    src="https://metropolis.com.ar/wp-content/uploads/2018/05/Obelisco.jpg" />
+                                    src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/SEAXF4DRMFCN7L3YZM6BPTFTVI.jpg" />
                             <div class="history-con">
                                 <div style="display: flex;">
                                     <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 10px"></i>
-                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">El<br/>Obelisco</h4>
-                                </div>
-                                <div style="display: flex; justify-content: flex-end; align-items: center">
-                                    <i class="fa fa-star star-rating"></i>
-                                    <i class="fa fa-star star-rating"></i>
-                                    <i class="fa fa-star star-rating"></i>
-                                    <i class="fa fa-star star-rating"></i>
-                                    <i class="fa fa-star-o star-rating"></i>
-                                    <h4 class="star-rating">(4)</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <img class="history-img"
-                                    src="https://media.ambito.com/p/87bdb27c1840d8de9f0efc11c49b4faa/adjuntos/239/imagenes/037/350/0037350990/la-zona-mas-exclusiva-capital-siempre-manejo-valores-dolares-hoy-esos-precios-se-pesificaron-como-consecuencia-la-pandemia.jpg" />
-                            <div class="history-con">
-                                <div style="display: flex;">
-                                    <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 10px"></i>
-                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Puerto<br/>Madero</h4>
+                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Teatro<br/>Colón</h4>
                                 </div>
                                 <div style="display: flex; justify-content: flex-end; align-items: center">
                                     <i class="fa fa-star star-rating"></i>
@@ -96,11 +82,11 @@
                         </div>
                         <div class="col-6">
                             <img class="history-img"
-                                    src="https://www.fodors.com/wp-content/uploads/2018/07/Buenos-Aires-Neighborhoods-Hero.jpg" />
+                                    src="https://i.ytimg.com/vi/Qk8FfGO8ft0/maxresdefault.jpg" />
                             <div class="history-con">
                                 <div style="display: flex;">
                                     <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 10px"></i>
-                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Palermo<br/>Hollywood</h4>
+                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Bosques de<br/>Palermo</h4>
                                 </div>
                                 <div style="display: flex; justify-content: flex-end; align-items: center">
                                     <i class="fa fa-star star-rating"></i>
@@ -114,29 +100,11 @@
                         </div>
                         <div class="col-6">
                             <img class="history-img"
-                                    src="https://media.gettyimages.com/photos/buenos-aires-argentina-av-9-de-julio-in-the-center-of-the-city-at-picture-id1181824260?s=612x612" />
+                                    src="https://media-cdn.tripadvisor.com/media/photo-s/13/f8/af/5e/plaza-san-martin.jpg" />
                             <div class="history-con">
                                 <div style="display: flex;">
                                     <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 10px"></i>
-                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Avenida<br/>9 de julio</h4>
-                                </div>
-                                <div style="display: flex; justify-content: flex-end; align-items: center">
-                                    <i class="fa fa-star star-rating"></i>
-                                    <i class="fa fa-star star-rating"></i>
-                                    <i class="fa fa-star star-rating"></i>
-                                    <i class="fa fa-star star-rating"></i>
-                                    <i class="fa fa-star-o star-rating"></i>
-                                    <h4 class="star-rating">(4)</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <img class="history-img"
-                                    src="https://scontent.fasu3-1.fna.fbcdn.net/v/t31.0-8/15800348_1346055135457273_5191146416085839670_o.jpg?_nc_cat=106&ccb=2&_nc_sid=e3f864&_nc_ohc=LedFSHuZNUIAX_mqWO2&_nc_ht=scontent.fasu3-1.fna&oh=a4d20798990f006206aeb931e5b73ca8&oe=5FD54A95" />
-                            <div class="history-con">
-                                <div style="display: flex;">
-                                    <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 10px"></i>
-                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Restaurante<br/>La Guitarrita</h4>
+                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Plaza San <br/>Martín</h4>
                                 </div>
                                 <div style="display: flex; justify-content: flex-end; align-items: center">
                                     <i class="fa fa-star star-rating"></i>
@@ -148,12 +116,48 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-6">
+                            <img class="history-img"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Buenos_Aires-San_Nicol%C3%A1s-Luna_Park.jpg/1200px-Buenos_Aires-San_Nicol%C3%A1s-Luna_Park.jpg" />
+                            <div class="history-con">
+                                <div style="display: flex;">
+                                    <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 10px"></i>
+                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Luna<br/>Park</h4>
+                                </div>
+                                <div style="display: flex; justify-content: flex-end; align-items: center">
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star-half-full star-rating"></i>
+                                    <h4 class="star-rating">(4.5)</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <img class="history-img"
+                                    src="https://lh3.googleusercontent.com/proxy/7SDXN32-oOBA2jQwP6PeK3Qqg8XT0x8B2amsVZbldkxCKas9RVweGM1tHk5j5Aayd0KWANjOhf-su9fjRXdWWvMPA8y77iYxxDisQCt15wx6gre8V7j7OcvuXhjIWBz0D7AAATBasRloVZLQyfVceEJWTKVISZU" />
+                            <div class="history-con">
+                                <div style="display: flex;">
+                                    <i class="fa fa-map-marker" style="color: var(--w-orange); margin-right: 10px"></i>
+                                    <h4 style="font-size: var(--normal-text); color: var(--w-orange); text-align: justify" class="kodchasan">Avenida<br/>Corrientes</h4>
+                                </div>
+                                <div style="display: flex; justify-content: flex-end; align-items: center">
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star star-rating"></i>
+                                    <i class="fa fa-star-half-full star-rating"></i>
+                                    <h4 class="star-rating">(4.5)</h4>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 footer">
-                    <a href="/chat"><i class="fa fa-users"></i></a>
+                    <a href="/chat" class="active"><i class="fa fa-users"></i></a>
                     <a href="/map"><i class="fa fa-globe"></i></a>
-                    <a href="/profile" class="active"><i class="fa fa-user"></i></a>
+                    <a href="/profile"><i class="fa fa-user"></i></a>
                 </div>
             </div>
         </div>

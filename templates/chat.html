@@ -113,7 +113,7 @@
                     .send {
                         position: absolute;
                         width: 90%;
-                        bottom: 130px;
+                        top: 78vh;
                         display: flex;
                     }
 
@@ -138,6 +138,16 @@
                         position: absolute;
                         padding: 20px;
                         display: none;
+                    }
+
+                    .seeprofile {
+                        background: var(--w-orange) !important;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        padding: 0 !important;
+                        width: 93% !important;
+                        font-size: var(--normal-text)
                     }
                 </style>
                 <script>
@@ -179,6 +189,12 @@
                         hidem();
                         $("#entrym").remove();
                     }
+                    function perfilj() {
+                        window.location.href = '/profile1';
+                    }
+                    function perfilm() {
+                        window.location.href = '/profile2';
+                    }
                 </script>
                 <div class="col-12 content" id="entries"
                      style="display: flex; flex-direction: column; align-items: center; position: relative">
@@ -201,12 +217,15 @@
                     <div class="popup" id="pj">
                         <h1 onclick="hidej()" style="position: absolute; right: 15px; top: 15px">X</h1>
                         <div style="display: flex;  padding-bottom: 10px; border-bottom: 1px solid var(--w-violet)">
-                            <img src="https://www.mensjournal.com/wp-content/uploads/mf/1280-selfie.jpg?w=900&quality=86&strip=all" />
+                            <div style="position: relative">
+                                <img src="https://www.mensjournal.com/wp-content/uploads/mf/1280-selfie.jpg?w=900&quality=86&strip=all" />
+                                <h7 onclick="perfilj()" class="kodchasan seeprofile">VER PERFIL</h7>
+                            </div>
                             <div>
                                 <h1>Juan, 20</h1>
                                 <div style="display:flex;">
                                     <i class="fa fa-map-marker" style="color: var(--w-violet); margin-right: 5px"></i>
-                                    <h4 style="font-size: var(--normal-text);" class="kodchasan" id="location">Tigre, Argentina</h4>
+                                    <h4 style="font-size: var(--normal-text); margin: 0" class="kodchasan" id="location">Tigre, Argentina</h4>
                                 </div>
                                 <h6 style="font-size: var(--normal-text);" class="kodchasan" >75% de coincidencia</h6>
                                 <div style="display:flex;">
@@ -231,7 +250,10 @@
                     <div class="popup" id="pm">
                         <h1 onclick="hidem()" style="position: absolute; right: 15px; top: 15px">X</h1>
                         <div style="display: flex;  padding-bottom: 10px; border-bottom: 1px solid var(--w-violet)">
-                            <img src="https://www.aero-mag.com/wp-content/uploads/2019/07/AMJuly19News-ametek1-e1563205327354-1024x1024.jpg" />
+                            <div style="position: relative">
+                                <img src="https://www.aero-mag.com/wp-content/uploads/2019/07/AMJuly19News-ametek1-e1563205327354-1024x1024.jpg" />
+                                <h7 onclick="perfilm()" class="kodchasan seeprofile">VER PERFIL</h7>
+                            </div>
                             <div>
                                 <h1>María, 22</h1>
                                 <div style="display:flex;">
@@ -292,7 +314,7 @@
                 } else {
                     $("#entries").append('<div class="entry" id="entrym"><img src="https://www.aero-mag.com/wp-content/uploads/2019/07/AMJuly19News-ametek1-e1563205327354-1024x1024.jpg"'
                         +' /><div><h1>María, 22</h1><div style="display:flex;"><i class="fa fa-map-marker" style="color: var(--w-violet); margin-right: 5px"></i>'
-                        +'<h4 style="font-size: var(--normal-text);" class="kodchasan" id="location">La Plata, Argentina</h4>'
+                        +'<h4 style="font-size: var(--normal-text); margin: 0" class="kodchasan" id="location">La Plata, Argentina</h4>'
                         +'</div><h6 style="font-size: var(--normal-text);" class="kodchasan" >90% de coincidencia</h6>'
                         +'<h7 class="kodchasan"onclick="openm()">ABRIR CHAT</h7></div></div>')
                     openm();
@@ -301,6 +323,8 @@
                         setTimeout( function () {$("#g1").fadeIn("slow");$("#g1").css("display", "flex");} , 3000);
                         setTimeout( function () {$("#g2").fadeIn("slow");$("#g2").css("display", "flex");} , 6000);
                 }
+            } else {
+                $("#matched").remove();
             }
         </script>
     </body>
